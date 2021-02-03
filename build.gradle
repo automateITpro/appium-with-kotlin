@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+apply plugin: 'io.qameta.allure'
+
+dependencies {
+    implementation "org.koin:koin-gradle-plugin:2.2.2"
+    implementation "org.koin:koin-core:2.2.2"
+    implementation "org.koin:koin-core-ext:2.2.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'io.appium:java-client:7.4.1'
+    implementation 'org.testng:testng:7.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.21"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
+    implementation 'com.github.automatedowl:allure-environment-writer:1.0.0'
+}
+
+allure {
+    autoconfigure = true
+    version = '2.4.1'
+}
+
+test {
+    maxHeapSize = "6144m"
+    jvmArgs "-XX:MaxMetaspaceSize=6144m"
+
+    useTestNG() {
+        //suites "testng.xml"
+        useDefaultListeners = true // Required to auto-create TestNG XML results for Jenkins
+    }
+}
