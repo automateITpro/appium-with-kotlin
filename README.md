@@ -46,3 +46,7 @@ App was taken from [here (Github)](https://github.com/Jodge/MovieGuide)
 * [Appium](http://appium.io/docs/en/about-appium/intro/)
 * [Kotlin](https://developer.android.com/kotlin)
 * [Allure](http://allure.qatools.ru/)
+
+---
+
+Link to presentation recording at 👉 [automateIT](https://youtu.be/MLeKeIT0wGA) channel.
